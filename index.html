@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/test.css">
+    <script src="/js/test.js" defer></script>
+</head>
+<body>
+    <fieldset>
+        <legend>Filtre</legend>
+        <h1 class="categorie">Catégories</h1>
+        <input type="checkbox" name="Tous" id="tous" value="Tous" class="check" onclick="filterProduct('tous')"> Tous <br>
+        <input type="checkbox" name="blanc" id="blanc" value="blanc" class="check" onclick="checkfunctionblanc();filterProduct('blanc')"> Chocolat Blanc<br>
+        <input type="checkbox" id="lait" value="lait" class="check" onclick="checkfunctionlait(),filterProduct('lait')"> Chocolat au Lait<br>
+    </fieldset>
+    <div id="products"></div>
+    <div id="resultat"></div>
+    <p id="text" style="display:none">Checkbox is checked !</p>
+</body>
+
+</html>
