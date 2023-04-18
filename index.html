@@ -12,13 +12,17 @@
     <fieldset>
         <legend>Filtre</legend>
         <h1 class="categorie">Catégories</h1>
-        <input type="checkbox" name="Tous" id="tous" value="Tous" class="check" onclick="filterProduct('tous')"> Tous <br>
-        <input type="checkbox" name="blanc" id="blanc" value="blanc" class="check" onclick="checkfunctionblanc();filterProduct('blanc')"> Chocolat Blanc<br>
-        <input type="checkbox" id="lait" value="lait" class="check" onclick="checkfunctionlait(),filterProduct('lait')"> Chocolat au Lait<br>
-    </fieldset>
+        <input type="checkbox" id="tous" class="check" onchange="checkAll(this)"> Tous <br>
+        <input type="checkbox" id="blanc" class="blanc" onchange="affichage('blanc');checkfunctionblanc()"> Chocolat Blanc<br>
+        <input type="checkbox" id="lait" class="check" onclick="affichage('lait');checkfunctionlait()"> Chocolat au Lait<br>
+        <input type="checkbox" id="noir" class="check" onclick="affichage('noir');checkfunctionnoir()"> Chocolat Noir <br>
+        <input type="checkbox" id="noix" class="check" onclick="affichage('noix');checkfunctionnoix()"> Noix / Noisette <br>
+        <input type="checkbox" id="fruits" class="check" onclick="affichage('fruits');checkfunctionfruits()"> Fruits <br>
+        <input type="checkbox" id="caramel" class="check" onclick="affichage('caramel');checkfunctioncaramel()"> Caramel <br>
+        <input type="checkbox" id="liqueur" class="check" onclick="affichage('liqueur');checkfunctionliqueur()"> Liqueur <br> 
+</fieldset>
     <div id="products"></div>
-    <div id="resultat"></div>
-    <p id="text" style="display:none">Checkbox is checked !</p>
+    
 </body>
 
 </html>
