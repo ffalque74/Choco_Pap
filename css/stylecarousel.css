@@ -12,20 +12,20 @@
 
 main {
     text-align: center;
-    height: 80em;
+    height: 80%;
     color: rgb(235, 74, 154);
-    padding: 2em 0 0 0;
+    padding: 0 0 0 0;
 }
 /* * * Main * * */
 
 .carousel-prod {
     background-color: rgb(139, 133, 133);
     display: inline-block;
-    width: 100em;
+    width: 100%;
     height: auto;
     border-radius: 10px;
     border: whitesmoke solid 1px;
-    margin: 2em;
+    margin: 0em;
     padding: 1em;
 }
 
@@ -34,7 +34,7 @@ main {
     width: 100%;
     border: whitesmoke solid 1px;
     border-radius: 10px;
-    margin: 0.5em 0;
+    margin: 0;
 }
 
 .checkbox-no, .checkbox-yes {

@@ -1,12 +1,12 @@
-// select the slides //
+// Nous choisissons nos 3 slides //
 const slide0 = document.querySelector('[data-carousel="1"]').classList;
 const slide1 = document.querySelector('[data-carousel="2"]').classList;
 const slide2 = document.querySelector('[data-carousel="3"]').classList;
 
 setInterval ( () => {
 
-    // loop to check which of the slides has the class "show" //
-    // if it's positive the class is removed and add to next //
+    // Boucle pour choisir quelle boucle va être montré ou caché avec la classe "show" //
+   
     for (let classe of slide0) {
         if (classe == "show") {
             slide0.remove("show");
