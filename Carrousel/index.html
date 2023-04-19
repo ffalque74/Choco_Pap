@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <meta name="viewport" content="height=device-height">
+        <title>simpleCarousel.js</title>
+       
+        <link rel="stylesheet" href="css/stylecarousel.css"> 
+    </head>    
+
+    <body>
+        <main>
+            <section class="carousel-container">
+                <div class="show carousel-slide" data-carousel="1">
+                    <div class="carousel-prod">
+                        <img src="/images/im1.jpg" alt="" class="carousel-img">
+                    </div>
+                </div>
+                <div class="hide carousel-slide" data-carousel="2">
+                    <div class="carousel-prod">
+                        <img src="images/im2.jpg" alt="" class="carousel-img">
+                    </div>
+                </div>
+                <div class="hide carousel-slide" data-carousel="3">
+                    <div class="carousel-prod">
+                        <img src="images/im3.jpg" alt="" class="carousel-img">
+                    </div>
+                </div>
+                <div class="carousel-checkbox-container">
+                    <div class="checkbox-yes" data-carousel-checkbox="1"></div>
+                    <div class="checkbox-no" data-carousel-checkbox="2"></div>
+                    <div class="checkbox-no" data-carousel-checkbox="3"></div>
+                </div>
+            </section>
+        </main>
+    </body>
+    <script src="js/autoCarousel.js"></script>
+    <script src="js/checkbox.js"></script>
+</html>
