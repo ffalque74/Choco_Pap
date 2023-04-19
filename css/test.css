@@ -1,11 +1,4 @@
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    border: none;
-    outline: none;
-    font-family: "Poppins", sans-serif;
-  }
+
   body {
     background-color: #eef0f3;
   }
@@ -13,18 +6,15 @@
     width: 95%;
     margin: 0 auto;
   }
-  #search-container {
-    margin: 1em 0;
+  
+  #products button {
+    color: deeppink;
+    margin-left: 3em;
+    width: 14em;
+    height: 3em;
+    border-radius: 10%;
   }
-  #search-container input {
-    background-color: transparent;
-    width: 40%;
-    border-bottom: 2px solid #110f29;
-    padding: 1em 0.3em;
-  }
-  #search-container input:focus {
-    border-bottom-color: #6759ff;
-  }
+  
   
   
   

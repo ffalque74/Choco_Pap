@@ -99,9 +99,10 @@ var data = [
     },
   ]
 
- // initialisation de quelques variables
+
 
  // initialisation de quelques variables
+var tous = false;
 var blanc = false;
 var lait = false;
 var noir = false;
@@ -188,13 +189,24 @@ function checkfunctionliqueur() {
   }
   console.log("liqueur",liqueur)
 }
+// fonction chocolat tous
+function checkfunctiontous() {
+  var check = document.getElementById("tous");
+  if (check.checked == true) {
+      tous = true;
+  }
+  else {
+     tous = false;
+  }};
+  console.log("tous",tous)
+
 
 // Boucle de recherche et execution des conditions
 for (let i of data) {
   //Creation des cartes
-  let card = document.createElement("div");
-  //on ajoute une categoie et on masque les image au depart
-  card.classList.add("card", i.category, "hide");
+  var card = document.createElement("div");
+  //on ajoute les classes on masque les images au depart
+  card.classList.add("card", i.category, i.price, "hide");
   //Div de l'image
   let imgContainer = document.createElement("div");
   imgContainer.classList.add("image-container");
@@ -213,49 +225,48 @@ for (let i of data) {
   container.appendChild(name);
   //prix
   let price = document.createElement("h6");
-  price.innerText = "€" + i.price;
+  price.innerText = "Prix : " + i.price + " Euro";
   container.appendChild(price);
   card.appendChild(container);
   document.getElementById("products").appendChild(card);
   //notation
   let notation = document.createElement("h6");
-  notation.innerText = i.notation + " / 5";
+  notation.innerText = "Note : " + i.notation + " / 5";
   container.appendChild(notation);
   card.appendChild(container);
   document.getElementById("products").appendChild(card);
-}
+  //Bouton Panier
+  var btn = document.createElement("BUTTON");
+  var t = document.createTextNode("Ajouter au Panier");
+  btn.appendChild(t);
+  container.appendChild(btn);
+  card.appendChild(container);
+  document.getElementById("products").appendChild(card);
 
-var checkboxes = document.querySelectorAll("input[type = 'checkbox']");
-function checkAll(myCheckbox){
-    
-    if(myCheckbox.checked == true){
-        checkboxes.forEach(function(checkbox){
-            checkbox.checked = true;
-            
-           
-            
-        });
-    }
-    else{
-        checkboxes.forEach(function(checkbox){
-            checkbox.checked = false;
-        });
-    }
 }
 
 
-//parameter passed from button (Parameter same as category)
+ var pMin = 25;
+ console.log(pMin);
+ 
+
+
+//paramètre passé pour rechercher la category
 function affichage(value) {
   //selection de toutes les cartes
-  let elements = document.querySelectorAll(".card");
-  
-  //loop through all cards
+  let elements = document.querySelectorAll(".card"); 
+    
+  console.log(prix);
+  //Je fais une boucle à travers toutes les cartes
   elements.forEach((element) => {
-    //display all cards on 'all' button click
+    
+    
     console.log("valeur de value dans la fonction affichage : ",value);
+    console.log("valeur de pMin : ",pMin);
       //Verification de la recherche dans les categories
       
-      if ((element.classList.contains(value)&& (value == "blanc") && (blanc==false))) {
+      
+      if (element.classList.contains(value)&& (value == "blanc") && (blanc==false)) {
           //display element based on category
           element.classList.remove("hide");
         }
