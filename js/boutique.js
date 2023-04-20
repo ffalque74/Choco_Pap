@@ -4,56 +4,56 @@ var data = [
       category: "noir",
       price: 15,
       notation: "4,2",
-      image: "/images/produit1.jpg",
+      image: "/images/produit8.jpg",
     },
     {
       productName: "Tablette chocolat Noir 500gr",
       category: "noir",
       price: 45,
       notation: "4,2",
-      image: "/images/produit2.jpg",
+      image: "/images/produit9.jpg",
     },
     {
       productName: "Tablette chocolat Blanc 150gr",
       category: "blanc",
       price: 15,
       notation: "4,2",
-      image: "/images/produit1.jpg",
+      image: "/images/produit6.jpg",
     },
     {
       productName: "Tablette chocolat Blanc 500gr",
       category: "blanc",
       price: 45,
       notation: "4,2",
-      image: "/images/produit2.jpg",
+      image: "/images/produit4.jpg",
     },
     {
       productName: "Tablette chocolat au lait 150gr",
       category: "lait",
       price: 15,
       notation: "4,2",
-      image: "/images/produit1.jpg",
+      image: "/images/produit5.jpg",
     },
     {
       productName: "Tablette chocolat au lait 500gr",
       category: "lait",
       price: 45,
       notation: "4,2",
-      image: "/images/produit2.jpg",
+      image: "/images/produit10.jpg",
     },
     {
       productName: "Tablette chocolat aux noix / noisettes 150gr",
       category: "noix",
       price: 15,
       notation: "4,2",
-      image: "/images/produit1.jpg",
+      image: "/images/produit9.jpg",
     },
     {
       productName: "Tablette chocolat aux noix / noisettes 500gr",
       category: "noix",
       price: 45,
       notation: "4,2",
-      image: "/images/produit2.jpg",
+      image: "/images/produit9.jpg",
     },
     {
       productName: "Tablette chocolat aux fruits 150gr",
@@ -67,14 +67,14 @@ var data = [
       category: "fruits",
       price: 45,
       notation: "4,2",
-      image: "/images/produit2.jpg",
+      image: "/images/produit7.jpg",
     },
     {
       productName: "Tablette chocolat au caramel 150gr",
       category: "caramel",
       price: 15,
       notation: "4,2",
-      image: "/images/produit1.jpg",
+      image: "/images/produit3.jpg",
     },
     {
       productName: "Tablette chocolat au caramel 500gr",
@@ -88,14 +88,14 @@ var data = [
       category: "liqueur",
       price: 15,
       notation: "4,2",
-      image: "/images/produit1.jpg",
+      image: "/images/produit3.jpg",
     },
     {
       productName: "Tablette chocolat à la liqueur 500gr",
       category: "liqueur",
       price: 45,
       notation: "4,2",
-      image: "/images/produit2.jpg",
+      image: "/images/produit8.jpg",
     },
   ]
 
@@ -206,12 +206,13 @@ for (let i of data) {
   //Creation des cartes
   var card = document.createElement("div");
   //on ajoute les classes on masque les images au depart
-  card.classList.add("card", i.category, i.price, "hide");
+  card.classList.add("card", i.category, i.price, "hide", "col-lg-14");
   //Div de l'image
   let imgContainer = document.createElement("div");
   imgContainer.classList.add("image-container");
   //image du produit
   let image = document.createElement("img");
+  image.classList.add("image");
   image.setAttribute("src", i.image);
   imgContainer.appendChild(image);
   card.appendChild(imgContainer);
@@ -242,12 +243,58 @@ for (let i of data) {
   container.appendChild(btn);
   card.appendChild(container);
   document.getElementById("products").appendChild(card);
-
 }
+
+
+// Apparition du menu categorie en SM
+const categorie = document.querySelector('.categorie');
+var selectCPlus = document.querySelector('.cplus');
+var selectCMoins = document.querySelector('.cmoins');
+var divCases = document.querySelector('.coches')
+categorie.addEventListener('click',() => {
+    selectCPlus.classList.toggle('hide');selectCMoins.classList.toggle('hide');divCases.classList.toggle('hide');
+})
+// Apparition du menu Prix en SM
+const Prix = document.querySelector('.prix');
+var selectPPlus = document.querySelector('.pplus');
+var selectPMoins = document.querySelector('.pmoins');
+var divPrix = document.querySelector('.prixSelect')
+Prix.addEventListener('click',() => {
+    selectPPlus.classList.toggle('hide');selectPMoins.classList.toggle('hide');divPrix.classList.toggle('hide');
+})
+// Apparition du menu Notes en SM
+const Note = document.querySelector('.notes');
+var selectNPlus = document.querySelector('.nplus');
+var selectNMoins = document.querySelector('.nmoins');
+var divNotes = document.querySelector('.noteSelect')
+Note.addEventListener('click',() => {
+    selectNPlus.classList.toggle('hide');selectNMoins.classList.toggle('hide');divNotes.classList.toggle('hide');
+})
+
+function myFunction(x) {
+  if (x.matches) { // If media query matches
+    divNotes.classList.toggle('hide');
+    divPrix.classList.toggle('hide');
+    divCases.classList.toggle('hide');
+  } else {
+   divNotes.classList.remove('hide');
+   divPrix.classList.remove('hide');
+   divCases.classList.remove('hide');
+  }
+}
+
+var x = window.matchMedia("(max-width: 720px)")
+myFunction(x) // Call listener function at run time
+x.addListener(myFunction) // Attach listener function on state changes
+
+
+
+
 
 
  var pMin = 25;
  console.log(pMin);
+ 
  
 
 
@@ -255,12 +302,8 @@ for (let i of data) {
 function affichage(value) {
   //selection de toutes les cartes
   let elements = document.querySelectorAll(".card"); 
-    
-  console.log(prix);
   //Je fais une boucle à travers toutes les cartes
-  elements.forEach((element) => {
-    
-    
+  elements.forEach((element) => { 
     console.log("valeur de value dans la fonction affichage : ",value);
     console.log("valeur de pMin : ",pMin);
       //Verification de la recherche dans les categories
@@ -327,3 +370,6 @@ function affichage(value) {
   };
 
 
+
+
+  
