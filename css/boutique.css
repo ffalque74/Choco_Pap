@@ -72,6 +72,7 @@ body {
 .hide {
     display: none;
 }
+/* Bordure  autour du filtre */
 fieldset.bordure{
     border: 1px groove #ddd !important;
     padding: 0 1.4em 1.4em 1.4em !important;
@@ -82,10 +83,20 @@ fieldset.bordure{
 legend.bordure{
     position: relative;
     top: -0.8em;
-    width:auto; /* Or auto */
-    padding:0 10px; /* To give a bit of padding on the left and right */
+    width:auto;
+    padding:0 10px; 
     border-bottom:none;
 }
+/* Fenètre Modale du Panier */
+.modale{
+    position: relative;
+    top: -60em;
+    z-index: 100;
+    width: 50%;
+    background-color: cornsilk;
+}
+
+
  @media screen and (max-width: 720px) {
    
     img {

@@ -1,6 +1,8 @@
 .hide{
     display: none;
 }
-.color{
+.container{
     color: darksalmon;
+    background-color: blue;
+    max-width: 600px;
 }

@@ -1,21 +1,3 @@
-
-//---------------Variables-------------------------------
-// valeur initiale des variables de filtrage prix et notes
-var pMin = 1;
-var pMax = 150;
-var nMin = 0;
-var nMax = 5;
-var tous = false;
-var blanc = false;
-var lait = false;
-var noir = false;
-var noix = false;
-var fruits = false;
-var caramel = false;
-var liqueur = false;
-
-//--------------- Datas -------------------------------
-
 var data = [
     {
       productName: "Tablette chocolat Noir 150gr",
@@ -117,46 +99,18 @@ var data = [
     },
   ]
 
-//----------- Recupération des valeus selectionnées par l'utilisateur----------
-// Récupération valeur Select pMin
-var eltpmin = document.getElementById('pmin-select');
-		eltpmin.addEventListener('change', function () {
-      var pMin = parseInt(this.value);
-      console.log("valeur de pMin : ",pMin);
-		})
-// Récupération valeur Select pMax
-var eltpmax = document.getElementById('pmax-select');
-		eltpmax.addEventListener('change', function () {
-      var pMax = parseInt(this.value);
-      console.log("valeur de pMax : ",pMax);
-		})
-// Récupération valeur Select nMin
-var eltnmin = document.getElementById('nmin-select');
-		eltnmin.addEventListener('change', function () {
-      var nMin = parseInt(this.value);
-      console.log("valeur de nMin : ",nMin);
-		})
-    // Récupération valeur Select nMax
-var eltnmax = document.getElementById('nmax-select');
-eltnmax.addEventListener('change', function () {
-  var nMax = parseInt(this.value);
-  console.log("valeur de nMax : ",nMax);
-})
 
-// Filtrage sur le prix min et prix max
-// je prend le tableau data et le transforme en dataP
-// j'applique le filtre du prix min et max
-var dataP =  data.filter(function(triPrix) {
-    return (triPrix.price >= pMin) && (triPrix.price <= pMax);
-});
-// Filtrage sur la note min et note max
-// je prend le tableau dataP et le transforme en dataPN
-// j'applique le filtre de la note min et max
-var dataPN =  dataP.filter(function(triNote) {
-    return (triNote.notation >= nMin) && (triNote.notation <= nMax);
-});
 
-//-------- Fonctions de verification des état des cases à cocher---------
+ // initialisation de quelques variables
+var tous = false;
+var blanc = false;
+var lait = false;
+var noir = false;
+var noix = false;
+var fruits = false;
+var caramel = false;
+var liqueur = false;
+
 // fonction chocolat blanc
 function checkfunctionblanc() {
     var checkblanc = document.getElementById("blanc");
@@ -247,8 +201,8 @@ function checkfunctiontous() {
   console.log("tous",tous)
 
 
-// --------------------- Creation des cartes--------------------------
-for (let i of dataPN) {
+// Boucle de recherche et execution des conditions
+for (let i of data) {
   //Creation des cartes
   var card = document.createElement("div");
   //on ajoute les classes on masque les images au depart
@@ -292,14 +246,54 @@ for (let i of dataPN) {
 }
 
 
+// Apparition du menu categorie en SM
+const categorie = document.querySelector('.categorie');
+var selectCPlus = document.querySelector('.cplus');
+var selectCMoins = document.querySelector('.cmoins');
+var divCases = document.querySelector('.coches')
+categorie.addEventListener('click',() => {
+    selectCPlus.classList.toggle('hide');selectCMoins.classList.toggle('hide');divCases.classList.toggle('hide');
+})
+// Apparition du menu Prix en SM
+const Prix = document.querySelector('.prix');
+var selectPPlus = document.querySelector('.pplus');
+var selectPMoins = document.querySelector('.pmoins');
+var divPrix = document.querySelector('.prixSelect')
+Prix.addEventListener('click',() => {
+    selectPPlus.classList.toggle('hide');selectPMoins.classList.toggle('hide');divPrix.classList.toggle('hide');
+})
+// Apparition du menu Notes en SM
+const Note = document.querySelector('.notes');
+var selectNPlus = document.querySelector('.nplus');
+var selectNMoins = document.querySelector('.nmoins');
+var divNotes = document.querySelector('.noteSelect')
+Note.addEventListener('click',() => {
+    selectNPlus.classList.toggle('hide');selectNMoins.classList.toggle('hide');divNotes.classList.toggle('hide');
+})
+
+function myFunction(x) {
+  if (x.matches) { // If media query matches
+    divNotes.classList.toggle('hide');
+    divPrix.classList.toggle('hide');
+    divCases.classList.toggle('hide');
+  } else {
+   divNotes.classList.remove('hide');
+   divPrix.classList.remove('hide');
+   divCases.classList.remove('hide');
+  }
+}
+
+var x = window.matchMedia("(max-width: 720px)")
+myFunction(x) // Call listener function at run time
+x.addListener(myFunction) // Attach listener function on state changes
 
 
 
 
 
 
-
-
+ var pMin = 25;
+ console.log(pMin);
  
  
 
@@ -375,51 +369,7 @@ function affichage(value) {
       })
   };
 
-//-------- Media Queries ---------------//
 
-// Apparition du menu categorie en SM
-// on clique sur l'éléments pour aficher ses enfants ou les cacher
-const categorie = document.querySelector('.categorie');
-var selectCPlus = document.querySelector('.cplus');
-var selectCMoins = document.querySelector('.cmoins');
-var divCases = document.querySelector('.coches')
-categorie.addEventListener('click',() => {
-    selectCPlus.classList.toggle('hide');selectCMoins.classList.toggle('hide');divCases.classList.toggle('hide');
-})
-// Apparition du menu Prix en SM
-// on clique sur l'éléments pour aficher ses enfants ou les cacher
-const Prix = document.querySelector('.prix');
-var selectPPlus = document.querySelector('.pplus');
-var selectPMoins = document.querySelector('.pmoins');
-var divPrix = document.querySelector('.prixSelect')
-Prix.addEventListener('click',() => {
-    selectPPlus.classList.toggle('hide');selectPMoins.classList.toggle('hide');divPrix.classList.toggle('hide');
-})
-// Apparition du menu Notes en SM
-// on clique sur l'éléments pour aficher ses enfants ou les cacher
-const Note = document.querySelector('.notes');
-var selectNPlus = document.querySelector('.nplus');
-var selectNMoins = document.querySelector('.nmoins');
-var divNotes = document.querySelector('.noteSelect')
-Note.addEventListener('click',() => {
-    selectNPlus.classList.toggle('hide');selectNMoins.classList.toggle('hide');divNotes.classList.toggle('hide');
-})
-// Media Querie pour cacher lse case à cacher et les select si ecran SM
-function cacher(ecran) {
-  if (ecran.matches) {
-    divNotes.classList.toggle('hide');
-    divPrix.classList.toggle('hide');
-    divCases.classList.toggle('hide');
-  } else {
-   divNotes.classList.remove('hide');
-   divPrix.classList.remove('hide');
-   divCases.classList.remove('hide');
-  }
-}
-
-var ecran = window.matchMedia("(max-width: 720px)")
-cacher(ecran) // Call listener function at run time
-ecran.addListener(cacher) // Attach listener function on state changes
 
 
   
