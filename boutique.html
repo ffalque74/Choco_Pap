@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/boutique.css">
     <script src="/js/bootstrap.bundle.min.js" defer></script>
-    <script src="/test.js" defer></script>
+    <script src="/js/boutique.js" defer></script>
    
     <title>Boutique Choco Pap</title>
 </head>
@@ -33,7 +33,7 @@
             <legend class="bordure">Filtre</legend>
             <h2 class="categorie h3 mt-2">Catégories <span class="d-md-none cplus categorie">+</span><span class="d-md-none cmoins hide categorie">-</span></h2>
             <div class="coches">
-                <input type="checkbox" id="all" class="check" onclick="affichage('blanc');affichage('lait');affichage('noir');affichage('noix');affichage('fruits');affichage('caramel');affichage('liqueur');checkfunctionall()"> All <br>
+                <input type="checkbox" id="all" class="check" onchange="checkAll(this)"> Tous <br>
                 <input type="checkbox" id="blanc" class="check" onclick="affichage('blanc');checkfunctionblanc()"> Chocolat Blanc<br>
                 <input type="checkbox" id="lait" class="check" onclick="affichage('lait');checkfunctionlait()"> Chocolat au Lait<br>
                 <input type="checkbox" id="noir" class="check" onclick="affichage('noir');checkfunctionnoir()"> Chocolat Noir <br>
@@ -45,7 +45,7 @@
             <h2 class="prix h3 mt-3">Prix <span class="d-md-none pplus categorie">+</span><span class="d-md-none pmoins hide categorie">-</span></h2>
             <div class="prixSelect">
                 <label for="pmin-select">Prix min :</label>
-                <select name="pmin" id="pmin-select" onchange="change_valeurPmin()"><p>prix</p>
+                <select name="pmin" id="pmin-select" onchange="change_valeurPmin();reiteration()"><p>prix</p>
                     <option value="">-</option>
                     <option selected="selected" value=1>1</option>
                     <option value=10>10</option>

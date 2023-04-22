@@ -137,8 +137,8 @@ function checkfunctionlait() {
     }
     console.log("all",all)
   }
-   
-  
+
+
 //- Section d'affichage avec filtrage des données du tableau --//
 
 function affichage(value) {
