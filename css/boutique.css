@@ -95,7 +95,9 @@ legend.bordure{
     width: 50%;
     background-color: cornsilk;
 }
-
+.message{
+    color: deeppink;
+}
 
  @media screen and (max-width: 720px) {
    

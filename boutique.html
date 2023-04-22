@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/css/boutique.css">
     <script src="/js/bootstrap.bundle.min.js" defer></script>
     <script src="/js/boutique.js" defer></script>
-   
+    <script src="test.js" defer></script>
     <title>Boutique Choco Pap</title>
 </head>
 <body>
@@ -33,14 +33,14 @@
             <legend class="bordure">Filtre</legend>
             <h2 class="categorie h3 mt-2">Catégories <span class="d-md-none cplus categorie">+</span><span class="d-md-none cmoins hide categorie">-</span></h2>
             <div class="coches">
-                <input type="checkbox" id="all" class="check" onchange="checkAll(this)"> Tous <br>
-                <input type="checkbox" id="blanc" class="check" onclick="affichage('blanc');checkfunctionblanc()"> Chocolat Blanc<br>
-                <input type="checkbox" id="lait" class="check" onclick="affichage('lait');checkfunctionlait()"> Chocolat au Lait<br>
-                <input type="checkbox" id="noir" class="check" onclick="affichage('noir');checkfunctionnoir()"> Chocolat Noir <br>
-                <input type="checkbox" id="noix" class="check" onclick="affichage('noix');checkfunctionnoix()"> Noix / Noisette <br>
-                <input type="checkbox" id="fruits" class="check" onclick="affichage('fruits');checkfunctionfruits()"> Fruits <br>
-                <input type="checkbox" id="caramel" class="check" onclick="affichage('caramel');checkfunctioncaramel()"> Caramel <br>
-                <input type="checkbox" id="liqueur" class="check" onclick="affichage('liqueur');checkfunctionliqueur()"> Liqueur <br> 
+                <input type="checkbox" id="all" class="check"  onclick="tous(); checkAll(this)"> Tous <br>
+                <input type="checkbox" id="blanc" class="check"  onclick="affichage('blanc');checkfunctionblanc()"> Chocolat Blanc<br>
+                <input type="checkbox" id="lait" class="check"  onclick="affichage('lait');checkfunctionlait()"> Chocolat au Lait<br>
+                <input type="checkbox" id="noir" class="check"  onclick="affichage('noir');checkfunctionnoir()"> Chocolat Noir <br>
+                <input type="checkbox" id="noix" class="check"  onclick="affichage('noix');checkfunctionnoix()"> Noix / Noisette <br>
+                <input type="checkbox" id="fruits" class="check"  onclick="affichage('fruits');checkfunctionfruits()"> Fruits <br>
+                <input type="checkbox" id="caramel" class="check"  onclick="affichage('caramel');checkfunctioncaramel()"> Caramel <br>
+                <input type="checkbox" id="liqueur" class="check"  onclick="affichage('liqueur');checkfunctionliqueur()"> Liqueur <br> 
             </div>
             <h2 class="prix h3 mt-3">Prix <span class="d-md-none pplus categorie">+</span><span class="d-md-none pmoins hide categorie">-</span></h2>
             <div class="prixSelect">
@@ -88,9 +88,11 @@
             </div>
         </fieldset>
         <div class="col-lg-1"></div>
+        
         <div class="col-lg-9  row"  id="products">
+            
         </div>
-        <!-- Page Modale -->
+        
         
         
     </main>

@@ -15,6 +15,7 @@ var noix = false;
 var fruits = false;
 var caramel = false;
 var liqueur = false;
+var checkboxes = document.querySelectorAll("input[type = 'checkbox']");
 
 // -------- Aquisition des changement filtre utilisateu ---------//
 
@@ -137,8 +138,29 @@ function checkfunctionlait() {
     }
     console.log("all",all)
   }
-
-
+//-- Fonction de selection de l'ensembles des produits --//
+  function tous(){
+    document.getElementById('blanc').click();
+    document.getElementById('lait').click();
+    document.getElementById('noir').click();
+    document.getElementById('noix').click();
+    document.getElementById('fruits').click();
+    document.getElementById('caramel').click();
+    document.getElementById('liqueur').click();
+  }
+  //-----je coche toutes les saes si tous est coché -----//
+  function checkAll(myCheckbox){
+    if(myCheckbox.checked == true){
+        checkboxes.forEach(function(checkbox){
+            checkbox.checked = true;
+        });
+    }
+    else{
+        checkboxes.forEach(function(checkbox){
+            checkbox.checked = false;
+        });
+    }
+  }
 //- Section d'affichage avec filtrage des données du tableau --//
 
 function affichage(value) {
@@ -281,7 +303,11 @@ function affichage(value) {
             return ((triNote.notation >= nMin) && (triNote.notation <= nMax));
         });
         console.log("valeur de dataPN : ",dataPN);
-          
+        
+        
+
+
+
         //------- Creation des cartes dans la Div Products dans le HTML-------//
 
         // Avec dataPN je vais piocher les cartes selectionnées aprés les 3 filtres
