@@ -161,7 +161,22 @@ function checkfunctionlait() {
         });
     }
   }
-//- Section d'affichage avec filtrage des données du tableau --//
+
+//--------------- TEST BOUTON Panier ---------------------------//
+
+let button = document.querySelector('button');
+console.log(button);
+button.addEventListener('click', actionClick);
+
+  function actionClick() {
+    alert('Ok click!');
+  }
+
+
+
+
+  //- Section d'affichage avec filtrage des données du tableau --//
+
 
 function affichage(value) {
     // je charge tout changement au debut de ma fonction des valeurs
@@ -181,6 +196,7 @@ function affichage(value) {
     //------------ Mon tableau avec tout les articles ----------//
     var data = [
         {
+          id: 01,
           productName: "Tablette chocolat Noir 150gr",
           category: "noir",
           price: 15,
@@ -188,6 +204,7 @@ function affichage(value) {
           image: "/images/produit8.jpg",
         },
         {
+          id: 02,
           productName: "Tablette chocolat Noir 500gr",
           category: "noir",
           price: 45,
@@ -195,6 +212,7 @@ function affichage(value) {
           image: "/images/produit9.jpg",
         },
         {
+          id: 03,
           productName: "Tablette chocolat Blanc 150gr",
           category: "blanc",
           price: 15,
@@ -202,6 +220,7 @@ function affichage(value) {
           image: "/images/produit6.jpg",
         },
         {
+          id: 04,
           productName: "Tablette chocolat Blanc 500gr",
           category: "blanc",
           price: 45,
@@ -209,6 +228,7 @@ function affichage(value) {
           image: "/images/produit4.jpg",
         },
         {
+          id: 05,
           productName: "Tablette chocolat au lait 150gr",
           category: "lait",
           price: 15,
@@ -216,6 +236,7 @@ function affichage(value) {
           image: "/images/produit5.jpg",
         },
         {
+          id: 06,
           productName: "Tablette chocolat au lait 500gr",
           category: "lait",
           price: 45,
@@ -223,6 +244,7 @@ function affichage(value) {
           image: "/images/produit10.jpg",
         },
         {
+          id: 07,
           productName: "Tablette chocolat aux noix / noisettes 150gr",
           category: "noix",
           price: 15,
@@ -230,6 +252,7 @@ function affichage(value) {
           image: "/images/produit9.jpg",
         },
         {
+          id: 08,
           productName: "Tablette chocolat aux noix / noisettes 500gr",
           category: "noix",
           price: 45,
@@ -237,6 +260,7 @@ function affichage(value) {
           image: "/images/produit9.jpg",
         },
         {
+          id: 09,
           productName: "Tablette chocolat aux fruits 150gr",
           category: "fruits",
           price: 15,
@@ -244,6 +268,7 @@ function affichage(value) {
           image: "/images/produit1.jpg",
         },
         {
+          id: 10,
           productName: "Tablette chocolat aux fruits 500gr",
           category: "fruits",
           price: 45,
@@ -251,6 +276,7 @@ function affichage(value) {
           image: "/images/produit7.jpg",
         },
         {
+          id: 11,
           productName: "Tablette chocolat au caramel 150gr",
           category: "caramel",
           price: 15,
@@ -258,6 +284,7 @@ function affichage(value) {
           image: "/images/produit3.jpg",
         },
         {
+          id: 12,
           productName: "Tablette chocolat au caramel 500gr",
           category: "caramel",
           price: 45,
@@ -265,6 +292,7 @@ function affichage(value) {
           image: "/images/produit2.jpg",
         },
         {
+          id: 13,
           productName: "Tablette chocolat à la liqueur 150gr",
           category: "liqueur",
           price: 15,
@@ -272,6 +300,7 @@ function affichage(value) {
           image: "/images/produit3.jpg",
         },
         {
+          id: 14,
           productName: "Tablette chocolat à la liqueur 500gr",
           category: "liqueur",
           price: 45,
@@ -316,6 +345,8 @@ function affichage(value) {
         var card = document.createElement("div");
         //on ajoute les classes si besoin
         card.classList.add("card", i.category);
+        //on ajoute l'id produit à la carte
+        card.setAttribute("id", i.id);
         //Div de l'image
         let imgContainer = document.createElement("div");
         imgContainer.classList.add("image-container");
@@ -350,9 +381,12 @@ function affichage(value) {
         var t = document.createTextNode("Ajouter au Panier");
         btn.classList.add("ajouterPanier");
         btn.appendChild(t);
+        
         container.appendChild(btn);
         card.appendChild(container);
+       
         document.getElementById("products").appendChild(card);
+       
       }
     
   //selection de toutes les cartes
