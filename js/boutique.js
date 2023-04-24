@@ -193,127 +193,23 @@ function affichage(value) {
     console.log("test de all",all);
     console.log("test de blanc",blanc);
 
-    //------------ Mon tableau avec tout les articles ----------//
-    var data = [
-        {
-          id: 01,
-          productName: "Tablette chocolat Noir 150gr",
-          category: "noir",
-          price: 15,
-          notation: 2.2,
-          image: "/images/produit8.jpg",
-        },
-        {
-          id: 02,
-          productName: "Tablette chocolat Noir 500gr",
-          category: "noir",
-          price: 45,
-          notation: 3.2,
-          image: "/images/produit9.jpg",
-        },
-        {
-          id: 03,
-          productName: "Tablette chocolat Blanc 150gr",
-          category: "blanc",
-          price: 15,
-          notation: 4.2,
-          image: "/images/produit6.jpg",
-        },
-        {
-          id: 04,
-          productName: "Tablette chocolat Blanc 500gr",
-          category: "blanc",
-          price: 45,
-          notation: 4.7,
-          image: "/images/produit4.jpg",
-        },
-        {
-          id: 05,
-          productName: "Tablette chocolat au lait 150gr",
-          category: "lait",
-          price: 15,
-          notation: 4.5,
-          image: "/images/produit5.jpg",
-        },
-        {
-          id: 06,
-          productName: "Tablette chocolat au lait 500gr",
-          category: "lait",
-          price: 45,
-          notation: 3.5,
-          image: "/images/produit10.jpg",
-        },
-        {
-          id: 07,
-          productName: "Tablette chocolat aux noix / noisettes 150gr",
-          category: "noix",
-          price: 15,
-          notation: 2.8,
-          image: "/images/produit9.jpg",
-        },
-        {
-          id: 08,
-          productName: "Tablette chocolat aux noix / noisettes 500gr",
-          category: "noix",
-          price: 45,
-          notation: 3.2,
-          image: "/images/produit9.jpg",
-        },
-        {
-          id: 09,
-          productName: "Tablette chocolat aux fruits 150gr",
-          category: "fruits",
-          price: 15,
-          notation: 4.2,
-          image: "/images/produit1.jpg",
-        },
-        {
-          id: 10,
-          productName: "Tablette chocolat aux fruits 500gr",
-          category: "fruits",
-          price: 45,
-          notation: 4.2,
-          image: "/images/produit7.jpg",
-        },
-        {
-          id: 11,
-          productName: "Tablette chocolat au caramel 150gr",
-          category: "caramel",
-          price: 15,
-          notation: 4.2,
-          image: "/images/produit3.jpg",
-        },
-        {
-          id: 12,
-          productName: "Tablette chocolat au caramel 500gr",
-          category: "caramel",
-          price: 45,
-          notation: 4.2,
-          image: "/images/produit2.jpg",
-        },
-        {
-          id: 13,
-          productName: "Tablette chocolat à la liqueur 150gr",
-          category: "liqueur",
-          price: 15,
-          notation: 4,
-          image: "/images/produit3.jpg",
-        },
-        {
-          id: 14,
-          productName: "Tablette chocolat à la liqueur 500gr",
-          category: "liqueur",
-          price: 45,
-          notation: 5,
-          image: "/images/produit8.jpg",
-        },
-      ]
-      //-------- 3 Filtres category / price / notation ------------//
+      
+      //------------- import depuis fichier Json ------------------//
+      var http = new XMLHttpRequest();
+      http.open('get', '/JSON/data.json', true);
+      http.send();
+      http.onload = function(){
+        if(this.readyState == 4 && this.status == 200){
+            var data2 = JSON.parse(this.responseText);
+            
+            console.log("data2 : ",data2);
+        }
 
+      //-------- 3 Filtres category / price / notation ------------//
         // Filtrage la categorie je compare la valeur controle 
         // acquise avec le fonction affichage
         // je prend le tableau dataC et le transforme en dataP
-        var dataC = data.filter(function(triCat) {
+        var dataC = data2.filter(function(triCat) {
             return (triCat.category == controle);
         });
         
@@ -399,31 +295,31 @@ function affichage(value) {
     console.log("all dans la fonction d'affichage : ",all);
       //Verification avec la recherche dans les categories
       
-    if (element.classList.contains(value)&& (value == "blanc") && (blanc==true)) {
+    if (element.classList.contains(value)&& (value == "blanc") && (blanc==false)) {
           // on fait disparaitre si la case à cocher est vide
           element.classList.add("hide");
         }
-    if (element.classList.contains(value)&& (value == "lait") && (lait==true)) {
+    if (element.classList.contains(value)&& (value == "lait") && (lait==false)) {
         // on fait disparaitre si la case à cocher est vide
         element.classList.add("hide");
         }
-    if (element.classList.contains(value)&& (value == "noir") && (noir==true)) {
+    if (element.classList.contains(value)&& (value == "noir") && (noir==false)) {
         // on fait disparaitre si la case à cocher est vide
         element.classList.add("hide");
         }
-    if (element.classList.contains(value)&& (value == "noix") && (noix==true)) {
+    if (element.classList.contains(value)&& (value == "noix") && (noix==false)) {
         // on fait disparaitre si la case à cocher est vide
         element.classList.add("hide");
         }
-    if (element.classList.contains(value)&& (value == "fruits") && (fruits==true)) {
+    if (element.classList.contains(value)&& (value == "fruits") && (fruits==false)) {
         // on fait disparaitre si la case à cocher est vide
         element.classList.add("hide");
         }
-    if (element.classList.contains(value)&& (value == "caramel") && (caramel==true)) {
+    if (element.classList.contains(value)&& (value == "caramel") && (caramel==false)) {
         // on fait disparaitre si la case à cocher est vide
         element.classList.add("hide");
         }
-    if (element.classList.contains(value)&& (value == "liqueur") && (liqueur==true)) {
+    if (element.classList.contains(value)&& (value == "liqueur") && (liqueur==false)) {
         // on fait disparaitre si la case à cocher est vide
         element.classList.add("hide");
         }
@@ -476,7 +372,7 @@ var ecran = window.matchMedia("(max-width: 720px)")
 cacher(ecran) // Call listener function at run time
 ecran.addListener(cacher) // Attach listener function on state changes
 
-
+}
   
 
 
