@@ -52,3 +52,4 @@ function getTotalPrice(){
     }
     return total;
 }
+

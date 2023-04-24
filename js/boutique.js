@@ -1,5 +1,11 @@
 
 
+
+
+
+
+
+
 //-----------------------Variables-------------------------------//
 
 // valeurs initiales des variables de filtrage prix, notes, produits
@@ -277,22 +283,31 @@ function affichage(value) {
         var t = document.createTextNode("Ajouter au Panier");
         btn.classList.add("ajouterPanier");
         btn.appendChild(t);
-        
         container.appendChild(btn);
+        // En clickant sur le bouton on ajoute l'article au panier
+        btn.onclick =  function(){
+          alert('Votre article a bien été ajouté à votre panier !');
+          var ajout = i.id;
+          
+          console.log("valeur de Ajout : ", ajout)
+          return ajout;
+        };
         card.appendChild(container);
-       
         document.getElementById("products").appendChild(card);
        
       }
+      console.log(ajout);
     
   //selection de toutes les cartes
   let elements = document.querySelectorAll(".card"); 
   //Je fais une boucle à travers toutes les cartes
-  // console.log(controle);
-  elements.forEach((element) => { 
-    //console.log("valeur de value dans la fonction affichage : ",value);
     
-    console.log("all dans la fonction d'affichage : ",all);
+
+ 
+  elements.forEach((element) => { 
+  
+    
+    
       //Verification avec la recherche dans les categories
       
     if (element.classList.contains(value)&& (value == "blanc") && (blanc==false)) {
@@ -323,9 +338,12 @@ function affichage(value) {
         // on fait disparaitre si la case à cocher est vide
         element.classList.add("hide");
         }
-       
+        return ajout;
     })
+    return ajout;
 };
+
+
 //-------- Media Queries ---------------//
 
 // Apparition du menu categorie en SM

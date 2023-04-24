@@ -23,14 +23,13 @@ http.onload = function(){
     
 }
 
-const btn = `
-    <div>
-        <p> Test de notre Bouton
-        </p>
-        <input class="favorite styled" id="01" type="button" onclick="test()" value="Envoyer une info">
-    </div>`
+const bouton = `
+        
+        <p>Architect & Engineer</p>
+                <input id="01" type="button" onclick="test()" value="Envoyer une info">
+    `
 
-document.getElementById("essais").innerHTML = btn;
+document.getElementById("essais").innerHTML = bouton;
 
 function test(){
 
