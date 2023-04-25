@@ -1,8 +1,27 @@
+var number = 0
+
+//---------- Fonction de sauvegarde de panier --//
+function saveBasket(basket){
+    localStorage.setItem("basket",JSON.stringify(basket));
+}
+
+//--------- Fonction récuperation du panier ----//
+function getBasket(){
+    let basket =(localStorage.getItem("basket"));
+    if(basket == null){
+        return [];
+    }else{
+        return JSON.parse(basket);
+    }
+}
 
 //---------- Fonction d'ajout au panier --------//
 function addBasket(product){
     let basket = getBasket();
-    let foundProduct = basket.find(p => p.id == product.id);
+    console.log(basket);
+    let foundProduct = basket.filter(function(cherche) {
+        return ((cherche.id == product.id));});
+    //let foundProduct = basket.find(p => p.id == product.id);
     if (foundProduct != underfined) {
         foundProduct.quantity = 1;
     } else {
@@ -41,7 +60,9 @@ function getNumberProduct(){
         number += product.quantity;
     }
     return number;
+    console.log(number);
 }
+console.log(number);
 
 //-------Fonction prix total du panier ---------//
 function getTotalPrice(){
@@ -53,3 +74,9 @@ function getTotalPrice(){
     return total;
 }
 
+function add(product){
+    let basket = getBasket(basket);
+    localStorage.setItem("basket", JSON.stringify(basket));
+    
+  }
+  

@@ -21,6 +21,7 @@ var noix = false;
 var fruits = false;
 var caramel = false;
 var liqueur = false;
+var ajout = "";
 var checkboxes = document.querySelectorAll("input[type = 'checkbox']");
 
 // -------- Aquisition des changement filtre utilisateu ---------//
@@ -288,26 +289,32 @@ function affichage(value) {
         btn.onclick =  function(){
           alert('Votre article a bien été ajouté à votre panier !');
           var ajout = i.id;
-          
           console.log("valeur de Ajout : ", ajout)
-          return ajout;
+          // On tri les articles en utilisant l'id de l'ajout au panier
+          var dataPanier = data2.filter(function(triPanier) {
+            return ((triPanier.id == ajout));
+          });
+          // Je visualise ce que je demande a mettre au panier
+          console.log("valeur de Ajout au panier : ", dataPanier)
+          saveBasket(dataPanier);
+          getNumberProduct();
         };
         card.appendChild(container);
         document.getElementById("products").appendChild(card);
        
       }
-      console.log(ajout);
+      
     
   //selection de toutes les cartes
   let elements = document.querySelectorAll(".card"); 
   //Je fais une boucle à travers toutes les cartes
     
-
+  
  
   elements.forEach((element) => { 
   
     
-    
+ 
       //Verification avec la recherche dans les categories
       
     if (element.classList.contains(value)&& (value == "blanc") && (blanc==false)) {
@@ -338,9 +345,9 @@ function affichage(value) {
         // on fait disparaitre si la case à cocher est vide
         element.classList.add("hide");
         }
-        return ajout;
+       
     })
-    return ajout;
+   
 };
 
 
