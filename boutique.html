@@ -9,9 +9,28 @@
     <script src="/js/bootstrap.bundle.min.js" defer></script>
     <script src="/js/boutique.js" defer></script>
     <script src="/js/panier.js" defer></script>
+    <script src="/js/test2.js" defer></script>
+    
     <title>Boutique Choco Pap</title>
 </head>
 <body>
+    <!-- Boite Modal du Panier -->
+<div class="modal fade container-fluid " id="basketModal" tabindex="-1" aria-labelledby="basketModalLabel" aria-hidden="true">
+    <div class="modal-dialog row">
+        <div class="modal-content col-md-8">
+            <div class="modal-header">
+                <h5 class="modal-title">Votre Panier</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            <p id="panier"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class=" basketButton" data-bs-dismiss="modal">Fermer</button>
+            </div>
+        </div>
+    </div>
+</div>
     <header class="navbar navbar-expand-md navbar-light px-3">
         <a href="#" class="navbar-brand">
             <img src="images/logo.png" alt="Logo Choco Pap" id="logo" class="ms-5">
@@ -23,7 +42,9 @@
             <ul class="navbar-nav ms-auto me-5">
                 <li class="nav-item h4 me-4"><a class="nav-link " href="/index.html">Accueil</a></li>
                 <li class="nav-item h4 me-5"><a class="nav-link active nav-link-action" href="/boutique.html">Boutique</a></li>
-                <li class="nav-item h4"><a class="nav-link" href="#"> 2 <img src="/images/panier.png" alt="icone Panier" id="panier" onclick="document.getElementById('id01').style.display='block'" /> </a></li>
+                <li class="nav-item h4 me-5"><a class="nav-link active nav-link-action" href="/panier.html">Panier</a></li>
+                <li class="nav-item h4"> 2 <a data-bs-toggle="modal" data-bs-target="#basketModal" href="#"><img src="/images/panier.png" alt="icone Panier" id="panier"/> </a></li>
+                
             </ul>
         </nav>
     </header>
@@ -91,15 +112,13 @@
         <div class="col-lg-9  row"  id="products">
             
         </div>
-        <p id="demo"></p>
-        
-        
-        
+        <div id="panierEssai"></div>
+ 
     </main>
     <footer class="row">
         <p class=" col-1 col-md-1"></p>
         <section class="col-10 col-md-3 pt-4 pb-4">
-            <h2>Coco Pap</h2>
+            <h2>Choco Pap</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
                 dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
                  ex ea commodo consequat.

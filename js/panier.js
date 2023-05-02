@@ -8,6 +8,7 @@ function saveBasket(basket){
 //--------- Fonction récuperation du panier ----//
 function getBasket(){
     let basket =(localStorage.getItem("basket"));
+    console.log('valeur de basket dans get Basket : ',basket);
     if(basket == null){
         return [];
     }else{
@@ -16,19 +17,28 @@ function getBasket(){
 }
 
 //---------- Fonction d'ajout au panier --------//
-function addBasket(product){
-    let basket = getBasket();
-    console.log(basket);
-    let foundProduct = basket.filter(function(cherche) {
-        return ((cherche.id == product.id));});
-    //let foundProduct = basket.find(p => p.id == product.id);
-    if (foundProduct != underfined) {
-        foundProduct.quantity = 1;
+function ajoutPanier(panier){
+
+    let basket =(localStorage.getItem("basket"));
+    console.log('valeur de panier : ',panier);
+    
+    
+    console.log('valeur de basket : ',basket);
+    basket = JSON.parse(basket);
+    if(basket == null)
+    { basket = [] }
+    
+    const found = basket.find(elt => elt.id == panier.id);
+    if(found != undefined){
+        console.log('add')
+        found.quantity = found.quantity + 1 ;
+        localStorage.setItem("basket",JSON.stringify(basket));
     } else {
-        product.quantity = 1;
-        basket.push(product);
-    }
-    saveBasket(basket);
+    
+    
+    basket.push(panier);
+    localStorage.setItem("basket",JSON.stringify(basket));
+}
 }
 
 //---------- Fonction de retrait du panier -----//
@@ -74,9 +84,3 @@ function getTotalPrice(){
     return total;
 }
 
-function add(product){
-    let basket = getBasket(basket);
-    localStorage.setItem("basket", JSON.stringify(basket));
-    
-  }
-  

@@ -98,7 +98,17 @@ legend.bordure{
 .message{
     color: deeppink;
 }
-
+#basketModal{
+    margin-left: 30%;
+   
+}
+.basketButton{
+    color: deeppink !important;
+    border: darkgray !important;
+    width: 14em !important;
+    height: 3em !important;
+    border-radius: 10% !important;
+}
  @media screen and (max-width: 720px) {
    
     img {

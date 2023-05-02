@@ -1,116 +1,97 @@
 
- //------------ Mon tableau avec tout les articles ----------//
- var data = [
-    {
-      id: 01,
-      productName: "Tablette chocolat Noir 150gr",
-      category: "noir",
-      price: 15,
-      notation: 2.2,
-      image: "/images/produit8.jpg",
-    },
-    {
-      id: 02,
-      productName: "Tablette chocolat Noir 500gr",
-      category: "noir",
-      price: 45,
-      notation: 3.2,
-      image: "/images/produit9.jpg",
-    },
-    {
-      id: 03,
-      productName: "Tablette chocolat Blanc 150gr",
-      category: "blanc",
-      price: 15,
-      notation: 4.2,
-      image: "/images/produit6.jpg",
-    },
-    {
-      id: 04,
-      productName: "Tablette chocolat Blanc 500gr",
-      category: "blanc",
-      price: 45,
-      notation: 4.7,
-      image: "/images/produit4.jpg",
-    },
-    {
-      id: 05,
-      productName: "Tablette chocolat au lait 150gr",
-      category: "lait",
-      price: 15,
-      notation: 4.5,
-      image: "/images/produit5.jpg",
-    },
-    {
-      id: 06,
-      productName: "Tablette chocolat au lait 500gr",
-      category: "lait",
-      price: 45,
-      notation: 3.5,
-      image: "/images/produit10.jpg",
-    },
-    {
-      id: 07,
-      productName: "Tablette chocolat aux noix / noisettes 150gr",
-      category: "noix",
-      price: 15,
-      notation: 2.8,
-      image: "/images/produit9.jpg",
-    },
-    {
-      id: 08,
-      productName: "Tablette chocolat aux noix / noisettes 500gr",
-      category: "noix",
-      price: 45,
-      notation: 3.2,
-      image: "/images/produit9.jpg",
-    },
-    {
-      id: 09,
-      productName: "Tablette chocolat aux fruits 150gr",
-      category: "fruits",
-      price: 15,
-      notation: 4.2,
-      image: "/images/produit1.jpg",
-    },
-    {
-      id: 10,
-      productName: "Tablette chocolat aux fruits 500gr",
-      category: "fruits",
-      price: 45,
-      notation: 4.2,
-      image: "/images/produit7.jpg",
-    },
-    {
-      id: 11,
-      productName: "Tablette chocolat au caramel 150gr",
-      category: "caramel",
-      price: 15,
-      notation: 4.2,
-      image: "/images/produit3.jpg",
-    },
-    {
-      id: 12,
-      productName: "Tablette chocolat au caramel 500gr",
-      category: "caramel",
-      price: 45,
-      notation: 4.2,
-      image: "/images/produit2.jpg",
-    },
-    {
-      id: 13,
-      productName: "Tablette chocolat à la liqueur 150gr",
-      category: "liqueur",
-      price: 15,
-      notation: 4,
-      image: "/images/produit3.jpg",
-    },
-    {
-      id: 14,
-      productName: "Tablette chocolat à la liqueur 500gr",
-      category: "liqueur",
-      price: 45,
-      notation: 5,
-      image: "/images/produit8.jpg",
-    },
-  ]
+
+//---------- Fonction de sauvegarde de panier --//
+function saveBasket(basket){
+    localStorage.setItem("basket",JSON.stringify(basket));
+}
+
+//--------- Fonction récuperation du panier ----//
+function getBasket(){
+    let basket =(localStorage.getItem("basket"));
+    console.log('valeur de basket dans get Basket : ',basket);
+    if(basket == null){
+        return [];
+    }else{
+        return JSON.parse(basket);
+    }
+}
+
+//---------- Fonction d'ajout au panier --------//
+function addBasket(produitQte){
+    let basket = getBasket();
+    console.log('id panier : ',basket.id);
+    console.log('id ajouté : ',produitQte.id)
+        
+        if(basket.id == produitQte.id){
+        console.log(basket.quantity)
+        produitQte.quantity = produitQte.quantity + basket.quantity;
+        saveBasket(produitQte);}
+        
+
+        console.log(produitQte);
+        
+            basket.push(produitQte);
+            
+    
+        
+   
+    
+    
+   
+}
+
+//---------- Fonction de retrait du panier -----//
+function removeFrmBasket(product){
+    let basket = getBasket();
+    basket = basket.filter(p => p.id != product.id);
+    saveBasket(basket);
+}
+
+//-------- Fonction de changement de quantité --//
+function changeQuantity(product, quantity){
+    let basket = getBasket();
+    let foundProduct = basket.find(p=> p.id == product.id);
+    if (foundProduct != underfined) {
+        foundProduct.quantity +- quantity;
+        if (foundProduct.quantity <= 0) {
+            removeFrmBasket(foundProduct);
+        } else {
+            saveBasket(basket);
+        }
+    }
+}
+
+//------Fonction de retour du nombre d'article--//
+function getNumberProduct(){
+    let basket = getBasket();
+    let number = 0;
+    for (let product of basket) {
+        number += product.quantity;
+    }
+    return number;
+    console.log(number);
+}
+console.log(number);
+
+//-------Fonction prix total du panier ---------//
+function getTotalPrice(){
+    let basket = getBasket();
+    let total = 0;
+    for (let product of basket){
+        total += product.quantity * product.price;
+    }
+    return total;
+}
+
+var els = document.getElementById('panierEssai');
+let basket =(localStorage.getItem("basket"));
+
+//els.innerHTML = basket;
+
+
+//***//**/*/*/*/*///***/ */ */ */
+
+function testPanier(){
+    
+
+}

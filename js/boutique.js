@@ -1,11 +1,9 @@
 
 
-
-
-
-
-
-
+ //-- Fonction de click all au depart --------------------//
+window.onload = (event) => {
+ document.getElementById('all').click();
+};
 //-----------------------Variables-------------------------------//
 
 // valeurs initiales des variables de filtrage prix, notes, produits
@@ -66,7 +64,7 @@ function checkfunctionblanc() {
     else {
        blanc = false;
     }
-    console.log("blanc",blanc)
+    //console.log("blanc",blanc)
 }
 // fonction chocolat lait
 function checkfunctionlait() {
@@ -77,7 +75,7 @@ function checkfunctionlait() {
     else {
        lait = false;
     }
-    console.log("lait",lait)
+    //console.log("lait",lait)
   }
   // fonction chocolat noir
   function checkfunctionnoir() {
@@ -88,7 +86,7 @@ function checkfunctionlait() {
     else {
        noir = false;
     }
-    console.log("noir",noir)
+    //console.log("noir",noir)
   }
   // fonction chocolat noix
   function checkfunctionnoix() {
@@ -99,7 +97,7 @@ function checkfunctionlait() {
     else {
        noix = false;
     }
-    console.log("noix",noix)
+    //console.log("noix",noix)
   }
   // fonction chocolat fruits
   function checkfunctionfruits() {
@@ -110,7 +108,7 @@ function checkfunctionlait() {
     else {
        fruits = false;
     }
-    console.log("fruits",fruits)
+    //console.log("fruits",fruits)
   }
   // fonction chocolat caramel
   function checkfunctioncaramel() {
@@ -121,7 +119,7 @@ function checkfunctionlait() {
     else {
        caramel = false;
     }
-    console.log("caramel",caramel)
+    //console.log("caramel",caramel)
   }
   // fonction chocolat liqueur
   function checkfunctionliqueur() {
@@ -132,7 +130,7 @@ function checkfunctionlait() {
     else {
        liqueur = false;
     }
-    console.log("liqueur",liqueur)
+    //console.log("liqueur",liqueur)
   }
   // fonction chocolat all
   function checkfunctionall() {
@@ -143,8 +141,11 @@ function checkfunctionlait() {
     else {
        all = false;
     }
-    console.log("all",all)
+    //console.log("all",all)
   }
+
+
+
 //-- Fonction de selection de l'ensembles des produits --//
   function tous(){
     document.getElementById('blanc').click();
@@ -169,18 +170,6 @@ function checkfunctionlait() {
     }
   }
 
-//--------------- TEST BOUTON Panier ---------------------------//
-
-let button = document.querySelector('button');
-console.log(button);
-button.addEventListener('click', actionClick);
-
-  function actionClick() {
-    alert('Ok click!');
-  }
-
-
-
 
   //- Section d'affichage avec filtrage des données du tableau --//
 
@@ -195,10 +184,10 @@ function affichage(value) {
     // Je transfere la valeur de value dans controle 
     var controle = value;
  
-    console.log("controle",controle);
-    console.log("value",value);
-    console.log("test de all",all);
-    console.log("test de blanc",blanc);
+    //console.log("controle",controle);
+    //console.log("value",value);
+    //console.log("test de all",all);
+    //console.log("test de blanc",blanc);
 
       
       //------------- import depuis fichier Json ------------------//
@@ -209,7 +198,7 @@ function affichage(value) {
         if(this.readyState == 4 && this.status == 200){
             var data2 = JSON.parse(this.responseText);
             
-            console.log("data2 : ",data2);
+            //console.log("data2 : ",data2);
         }
 
       //-------- 3 Filtres category / price / notation ------------//
@@ -220,21 +209,21 @@ function affichage(value) {
             return (triCat.category == controle);
         });
         
-        console.log("valeur de dataC : ",dataC);
+        //console.log("valeur de dataC : ",dataC);
         // Filtrage sur le prix min et prix max
         // je prend le tableau dataC et le transforme en dataP
         // j'applique le filtre du prix min et max
         var dataP = dataC.filter(function(triPrix) {
             return ((triPrix.price >= pMin) && (triPrix.price <= pMax));
         });
-        console.log("valeur de dataP : ",dataP);
+        //console.log("valeur de dataP : ",dataP);
         // Filtrage sur la note min et note max
         // je prend le tableau dataP et le transforme en dataPN
         // j'applique le filtre de la note min et max
         var dataPN = dataP.filter(function(triNote) {
             return ((triNote.notation >= nMin) && (triNote.notation <= nMax));
         });
-        console.log("valeur de dataPN : ",dataPN);
+        //console.log("valeur de dataPN : ",dataPN);
         
         
 
@@ -289,15 +278,25 @@ function affichage(value) {
         btn.onclick =  function(){
           alert('Votre article a bien été ajouté à votre panier !');
           var ajout = i.id;
-          console.log("valeur de Ajout : ", ajout)
+          //console.log("valeur de Ajout : ", ajout)
+
+         
           // On tri les articles en utilisant l'id de l'ajout au panier
           var dataPanier = data2.filter(function(triPanier) {
             return ((triPanier.id == ajout));
           });
           // Je visualise ce que je demande a mettre au panier
-          console.log("valeur de Ajout au panier : ", dataPanier)
-          saveBasket(dataPanier);
-          getNumberProduct();
+          //console.log("valeur de Ajout au panier : ", dataPanier)
+          const newChoice = [];
+          const produitQte = Object.assign({}, newChoice, {
+            id : parseInt(i.id), quantity : 1,name : i.productName, price : i.price
+          })
+          
+          //console.log("valeur de Ajout au panier : ", produitQte);
+          
+          ajoutPanier(produitQte);
+          
+          
         };
         card.appendChild(container);
         document.getElementById("products").appendChild(card);
