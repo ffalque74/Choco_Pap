@@ -1,0 +1,20 @@
+.imagePanier{
+    max-width: 50%;
+}
+.namePanier{
+    color: darkgrey;
+}
+.basketPrice{
+    color: darkgrey;
+    font-size: 2em;
+}
+.totalPrice{
+    color: darkgrey;
+    font-size: 2em;
+}
+.bouton-corbeille{
+    min-width: 100px;
+}
+.produit-quantite{
+    font-size: 2em;
+}

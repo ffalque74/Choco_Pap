@@ -279,8 +279,6 @@ function affichage(value) {
           alert('Votre article a bien été ajouté à votre panier !');
           var ajout = i.id;
           //console.log("valeur de Ajout : ", ajout)
-
-         
           // On tri les articles en utilisant l'id de l'ajout au panier
           var dataPanier = data2.filter(function(triPanier) {
             return ((triPanier.id == ajout));
@@ -289,14 +287,11 @@ function affichage(value) {
           //console.log("valeur de Ajout au panier : ", dataPanier)
           const newChoice = [];
           const produitQte = Object.assign({}, newChoice, {
-            id : parseInt(i.id), quantity : 1,name : i.productName, price : i.price
+            id : parseInt(i.id), quantity : 1,name : i.productName, price : i.price, image : i.image
           })
           
           //console.log("valeur de Ajout au panier : ", produitQte);
-          
           ajoutPanier(produitQte);
-          
-          
         };
         card.appendChild(container);
         document.getElementById("products").appendChild(card);
@@ -304,16 +299,10 @@ function affichage(value) {
       }
       
     
-  //selection de toutes les cartes
-  let elements = document.querySelectorAll(".card"); 
-  //Je fais une boucle à travers toutes les cartes
-    
-  
- 
-  elements.forEach((element) => { 
-  
-    
- 
+    //selection de toutes les cartes
+    let elements = document.querySelectorAll(".card"); 
+    //Je fais une boucle à travers toutes les cartes
+    elements.forEach((element) => { 
       //Verification avec la recherche dans les categories
       
     if (element.classList.contains(value)&& (value == "blanc") && (blanc==false)) {
