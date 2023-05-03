@@ -56,7 +56,7 @@ function fonctiondincrementation(boutonPlus){
         localStorage.setItem("basket",JSON.stringify(basket));
         location.reload();
 }
-
+// Fonction permettant de decrementer la quantité
 function fonctiondecrementation(boutonMoins){
     console.log(boutonMoins);
     // je recupère le panier existant et le stock dans basket
@@ -67,9 +67,13 @@ function fonctiondecrementation(boutonMoins){
     const foundMoins = basket.find(elt => elt.id == boutonMoins);
         console.log('add',foundMoins)
         foundMoins.quantity = foundMoins.quantity - 1 ;
+        if(foundMoins.quantity == 0){
+            alert("la quantité est égale à zero")
+        }
         localStorage.setItem("basket",JSON.stringify(basket));
         location.reload();
 }
+
 // //------Fonction de retour du nombre d'article--//
 // function getNumberProduct(){
 //     let basket = getBasket();
@@ -125,7 +129,7 @@ injectJs.innerHTML = basket
         <div  class="col-lg-1">
             <div class="flex-centre">
                 <button class="bouton-moins" data-id="" onclick="fonctiondecrementation(${basket.id})">-</button>
-                <span class="produit-quantite">&nbsp;${basket.quantity}&nbsp;</span>
+                <span class="produit-quantite"><strong>&nbsp;${basket.quantity}&nbsp;</strong></span>
                 <button class="bouton-plus" data-id="" onclick="fonctiondincrementation(${basket.id})">+</button>
             </div>
         </div>
