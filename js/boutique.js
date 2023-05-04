@@ -22,6 +22,17 @@ var liqueur = false;
 var ajout = "";
 var checkboxes = document.querySelectorAll("input[type = 'checkbox']");
 
+//--- Fonction de récupération de nb d'Articles dans le panier ---//
+var nbArticles = document.getElementById("number");
+var nb = localStorage.getItem("nbArticle");
+nbArticles.innerHTML = nb;
+
+
+
+
+
+
+
 // -------- Aquisition des changement filtre utilisateu ---------//
 
 // Recupérartion changement valeur select Prix min
@@ -292,6 +303,7 @@ function affichage(value) {
           
           //console.log("valeur de Ajout au panier : ", produitQte);
           ajoutPanier(produitQte);
+          comptage();
         };
         card.appendChild(container);
         document.getElementById("products").appendChild(card);
