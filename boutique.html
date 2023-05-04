@@ -15,25 +15,8 @@
     <title>Boutique Choco Pap</title>
 </head>
 <body>
-    <!-- Boite Modal du Panier -->
-<div class="modal fade container-fluid " id="basketModal" tabindex="-1" aria-labelledby="basketModalLabel" aria-hidden="true">
-    <div class="modal-dialog row">
-        <div class="modal-content col-md-8">
-            <div class="modal-header">
-                <h5 class="modal-title">Votre Panier</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-            <p id="panier"></p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class=" basketButton" data-bs-dismiss="modal">Fermer</button>
-            </div>
-        </div>
-    </div>
-</div>
     <header class="navbar navbar-expand-md navbar-light px-3">
-        <a href="#" class="navbar-brand">
+        <a href="/index.html" class="navbar-brand">
             <img src="images/logo.png" alt="Logo Choco Pap" id="logo" class="ms-5">
         </a>
         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-content">
@@ -42,14 +25,12 @@
         <nav class="collapse navbar-collapse" id="navbar-content">
             <ul class="navbar-nav ms-auto me-5">
                 <li class="nav-item h4 me-4"><a class="nav-link " href="/index.html">Accueil</a></li>
-                <li class="nav-item h4 me-5"><a class="nav-link active nav-link-action" href="/boutique.html">Boutique</a></li>
-                <li class="nav-item h4 me-5"><a class="nav-link active nav-link-action" href="/panier.html">Panier</a></li>
-                <li class="nav-item h4"><span id="number"></span> <a data-bs-toggle="modal" data-bs-target="#basketModal" href="#"><img src="/images/panier.png" alt="icone Panier" id="panier"/> </a></li>
-                
+                <li class="nav-item h4 me-5"><a class="nav-link active" href="/boutique.html">Boutique</a></li>
+                <li class="nav-item h4 me-5"><span id="number"></span><a class="nav-link" href="/panier.html"><img src="/images/panier.png" alt="icone Panier" id="panier" /> </a></li>
             </ul>
         </nav>
     </header>
-    <main class="row ms-3">
+    <main class="row ms-3 mt-5">
         <h1>BOUTIQUE</h1>
         <fieldset class="col-11 col-md-2 ms-3 bordure">
             <legend class="bordure">Filtre</legend>

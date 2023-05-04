@@ -14,7 +14,7 @@
 </head>
 <body>
     <header class="navbar navbar-expand-md navbar-light px-3">
-        <a href="#" class="navbar-brand">
+        <a href="/index.html" class="navbar-brand">
             <img src="images/logo.png" alt="Logo Choco Pap" id="logo" class="ms-5">
         </a>
         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-content">
@@ -22,9 +22,9 @@
         </button>
         <nav class="collapse navbar-collapse" id="navbar-content">
             <ul class="navbar-nav ms-auto me-5">
-                <li class="nav-item h4 me-4"><a class="nav-link active" href="#">Accueil</a></li>
-                <li class="nav-item h4 me-5"><a class="nav-link nav-link-action" href="boutique.html">Boutique</a></li>
-                <li class="nav-item h4"><a class="nav-link" href="#"> <span id="number">0</span> <img src="/images/panier.png" alt="icone Panier" id="panier" /> </a></li>
+                <li class="nav-item h4 me-4"><a class="nav-link" href="/index.html">Accueil</a></li>
+                <li class="nav-item h4 me-5"><a class="nav-link" href="/boutique.html">Boutique</a></li>
+                <li class="nav-item h4"><a class="nav-link active" href="/panier.html"> <span id="number">0</span> <img src="/images/panier.png" alt="icone Panier" id="panier" /> </a></li>
             </ul>
         </nav>
     </header>
@@ -32,11 +32,11 @@
         <div id="affichagePanier">
         </div>
         <div id="basDePanier">
-            <p class="totalPrice">
+            <p class="totalPrice mt-5 mb-5">
                 Prix Total :  <span id="prixTotal"></span>  
             </p>
-                <button class="mb-3 buttonPanier" type="button" onclick="reinitPanier()">REINITIALISER LE PANIER</button><br/>
-                <button class="mb-3 buttonPanier" type="button">VALIDER LE PANIER</button>
+                <button class="mb-5 buttonPanier" type="button" onclick="reinitPanier()">REINITIALISER LE PANIER</button><br/>
+                <button class="mb-5 buttonPanier" type="button">VALIDER LE PANIER</button>
                 
         </div>
     </main>

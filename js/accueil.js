@@ -1,4 +1,8 @@
 document.body.onload=fonction() {
+    //-------- fonction de recuperation du nombre d'article --//
+    var nbArticles = document.getElementById("number");
+    var nb = localStorage.getItem("nbArticle");
+    nbArticles.innerHTML = nb;
     nbr=3;
     p=0;
     container=document.getElementById("container");

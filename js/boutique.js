@@ -1,8 +1,6 @@
-
-
  //-- Fonction de click all au depart --------------------//
 window.onload = (event) => {
- document.getElementById('all').click();
+  document.getElementById('all').click();
 };
 //-----------------------Variables-------------------------------//
 
@@ -26,12 +24,6 @@ var checkboxes = document.querySelectorAll("input[type = 'checkbox']");
 var nbArticles = document.getElementById("number");
 var nb = localStorage.getItem("nbArticle");
 nbArticles.innerHTML = nb;
-
-
-
-
-
-
 
 // -------- Aquisition des changement filtre utilisateu ---------//
 
@@ -155,8 +147,6 @@ function checkfunctionlait() {
     //console.log("all",all)
   }
 
-
-
 //-- Fonction de selection de l'ensembles des produits --//
   function tous(){
     document.getElementById('blanc').click();
@@ -181,7 +171,6 @@ function checkfunctionlait() {
     }
   }
 
-
   //- Section d'affichage avec filtrage des données du tableau --//
 
 
@@ -199,7 +188,6 @@ function affichage(value) {
     //console.log("value",value);
     //console.log("test de all",all);
     //console.log("test de blanc",blanc);
-
       
       //------------- import depuis fichier Json ------------------//
       var http = new XMLHttpRequest();
@@ -235,12 +223,8 @@ function affichage(value) {
             return ((triNote.notation >= nMin) && (triNote.notation <= nMax));
         });
         //console.log("valeur de dataPN : ",dataPN);
-        
-        
 
-
-
-        //------- Creation des cartes dans la Div Products dans le HTML-------//
+        //--- Creation des cartes dans la Div Products dans le HTML-------//
 
         // Avec dataPN je vais piocher les cartes selectionnées aprés les 3 filtres
       for (let i of dataPN) {
@@ -307,9 +291,7 @@ function affichage(value) {
         };
         card.appendChild(container);
         document.getElementById("products").appendChild(card);
-       
       }
-      
     
     //selection de toutes les cartes
     let elements = document.querySelectorAll(".card"); 
@@ -349,7 +331,6 @@ function affichage(value) {
     })
    
 };
-
 
 //-------- Media Queries ---------------//
 

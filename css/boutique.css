@@ -10,7 +10,7 @@ footer{
     background-color: darkgrey;
 }
 #panier{
-    width: 1.2em !important;
+    width: 1.2em;
 }
 h1{
     text-align: center;
@@ -108,6 +108,10 @@ legend.bordure{
     width: 14em !important;
     height: 3em !important;
     border-radius: 10% !important;
+}
+.modalPanier{
+    min-width: 75em !important;
+    margin-right: 50%;
 }
  @media screen and (max-width: 720px) {
    
